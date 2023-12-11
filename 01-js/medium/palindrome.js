@@ -4,7 +4,23 @@
 */
 
 function isPalindrome(str) {
-  return true;
+	str = str.toLowerCase();
+	// Use a regular expression to match non-alphanumeric characters and spaces
+	const regex = /[^a-zA-Z0-9]/g;
+
+	// Replace the matched characters with an empty string
+	str = str.replace(regex, "");
+	let i = 0,
+		j = str.length - 1;
+	while (i < j) {
+		if (str[i] == str[j]) {
+			i++;
+			j--;
+		} else {
+			return false;
+		}
+	}
+	return true;
 }
 
 module.exports = isPalindrome;

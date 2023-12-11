@@ -5,8 +5,13 @@
   - Output: 9
 */
 
-function findLargestElement(numbers) {
-    
+function findLargestElement(nums) {
+	let maxi = nums[0];
+	for (let i = 1; i < nums.length; i++) {
+		if (nums[i] > maxi) maxi = nums[i];
+	}
+
+	return maxi;
 }
 
 module.exports = findLargestElement;
