@@ -1,22 +1,21 @@
 const { Router } = require("express");
 const adminMiddleware = require("../middleware/admin");
+const {
+	handleAdminSignup,
+	handleCreateNewCourse,
+	handleGetAllCourses,
+	handleAdminSignin,
+} = require("../controllers/admin");
+
 const router = Router();
 
 // Admin Routes
-router.post('/signup', (req, res) => {
-    // Implement admin signup logic
-});
+router.post("/signup", handleAdminSignup);
 
-router.post('/signin', (req, res) => {
-    // Implement admin signup logic
-});
+router.post("/signin", handleAdminSignin);
 
-router.post('/courses', adminMiddleware, (req, res) => {
-    // Implement course creation logic
-});
+router.post("/courses", adminMiddleware, handleCreateNewCourse);
 
-router.get('/courses', adminMiddleware, (req, res) => {
-    // Implement fetching all courses logic
-});
+router.get("/courses", adminMiddleware, handleGetAllCourses);
 
 module.exports = router;
